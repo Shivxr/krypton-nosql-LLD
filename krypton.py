@@ -64,6 +64,7 @@ def query(params,tree,branches):
     print(f"{v1} of {v} is {branches[op]}")    
     
 op1=pushdata(uid,params,tree,branches)
+op2=pushdata(op1,params,tree,branches)
 query(params,tree,branches)
     
 
