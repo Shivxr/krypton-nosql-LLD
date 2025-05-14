@@ -6,9 +6,9 @@ def shiv(target,pos,tree):
     while d:
         
         el=d.popleft()
-        
         if tree[el]==target:
             pp=el*(p-1)+pos
+            print(pp)
             return pp
         
         if left(el)!=-1:
@@ -41,15 +41,16 @@ for i in range(p-1):
 
 def pushdata(uid,params,tree,branches):
     print(f"you unique identifier is {uid}")
-    tree.append(uid)
     if len(tree)<1:
         d.append(0)
+    tree.append(uid)
     uid+=1
     for i in range(len(params)):
         z=input(f"enter value for {params[i]}")
         branches.append(z)
     print(tree)
     print(branches)
+    print(d)
     return uid
         
 def query(params,tree,branches):
@@ -59,11 +60,10 @@ def query(params,tree,branches):
     
     v2=params.index(v1)
     
-    op=shiv(v1,v2,tree)
-    print(f"{v1} of {v} is {op}")    
+    op=shiv(v,v2,tree)
+    print(f"{v1} of {v} is {branches[op]}")    
     
 op1=pushdata(uid,params,tree,branches)
-op2=pushdata(op1,params,tree,branches)
 query(params,tree,branches)
     
 
